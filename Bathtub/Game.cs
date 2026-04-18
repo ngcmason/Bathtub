@@ -87,6 +87,7 @@ public class Game(RenderWindow window)
     /// </summary>
     public virtual GameState IntializeGame()
     {
+        ShowBanner = false;
         Window.Clear(Color.Black);
         Window.SetTitle(TITLE);
         for (int x = 0; x < NUM_COLUMNS; x++)
@@ -106,7 +107,7 @@ public class Game(RenderWindow window)
     /// all of the game's actual logic including polling 
     /// bots and assigning new states to cells.
     /// </summary>
-    public virtual GameState LogicStep() { return new("Example Banner Text", false); }
+    public virtual GameState LogicStep() { return new("", true); }
 
     /// <summary>
     /// This method is called every frame. By default, 
@@ -136,10 +137,6 @@ public class Game(RenderWindow window)
                 float posX = offsetX + x * (cellSize + PADDING);
                 float posY = offsetY + y * (cellSize + PADDING);
 
-                if (x % 2 == 1 ^ y % 2 == 1) Cells[x,y].BGColor = Color.Blue;
-                Cells[x, y].Text = x + ", " + y;
-
-
                 Cells[x, y].Draw(
                     Window,
                     new Vector2f(posX, posY),
@@ -155,9 +152,8 @@ public class Game(RenderWindow window)
         float bannerWidth = Window.Size.X - 2 * H_MARGIN;
         float bannerHeight = BANNER_HEIGHT;
 
-        float padding = 10f; // keeps text away from edges
+        float padding = 10f;
 
-        // Start with a conservative size (NOT full height)
         uint fontSize = (uint)(bannerHeight * 0.6f);
 
         Text text = new(Font, content, fontSize)
@@ -167,7 +163,6 @@ public class Game(RenderWindow window)
 
         FloatRect bounds = text.GetLocalBounds();
 
-        // If too wide, scale DOWN only horizontally
         if (bounds.Width > bannerWidth - 2 * padding)
         {
             float scale = (bannerWidth - 2 * padding) / bounds.Width;
@@ -175,13 +170,11 @@ public class Game(RenderWindow window)
             bounds = text.GetLocalBounds();
         }
 
-        // Set origin to center of the text
         text.Origin = new Vector2f(
             bounds.Left + bounds.Width / 2f,
             bounds.Top + bounds.Height / 2f
         );
 
-        // Then position it at the center of the banner
         text.Position = new Vector2f(
             H_MARGIN + bannerWidth / 2f,
             V_MARGIN + bannerHeight / 2f
