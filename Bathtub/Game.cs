@@ -146,6 +146,12 @@ public class Game(RenderWindow window)
         }
     }
 
+    /// <summary>
+    /// This method is called when the game should no
+    /// longer continue. It draws the provided text
+    /// in the banner portion of the screen above the grid.
+    /// </summary>
+    /// <param name="content">The text to draw in the banner.</param>
     public virtual void DrawBanner(string content)
     {
         ShowBanner = true;
@@ -181,7 +187,6 @@ public class Game(RenderWindow window)
         );
 
         Window.Draw(text);
-
     }
 
     // --------------------------------------------
