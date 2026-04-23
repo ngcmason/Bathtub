@@ -30,7 +30,6 @@ while (window.IsOpen)
 
     if (!state.ShouldContinue)
     {
-        GameInstance.ShowBanner = true;
         GameInstance.DrawBanner(state.Text);
     }
 

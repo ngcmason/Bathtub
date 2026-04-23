@@ -13,42 +13,42 @@ public class Game(RenderWindow window)
     /// <summary>
     /// Number of cells in each row of the game grid.
     /// </summary>
-    public static int NUM_COLUMNS { get; } = 16;
+    protected static int NUM_COLUMNS { get; } = 16;
     /// <summary>
     /// Number of rows in the game grid.
     /// </summary>
-    public static int NUM_ROWS { get; } = 16;
+    protected static int NUM_ROWS { get; } = 16;
     /// <summary>
     /// Minimum size of the vertical margin around the grid and banner in the window, measured in pixels.
     /// </summary>
-    public static float V_MARGIN = 20f;
+    protected static float V_MARGIN = 20f;
     /// <summary>
     /// Minimum size of the horizontal margin around the grid in the window, measured in pixels.
     /// </summary>
-    public static float H_MARGIN = 20f;
+    protected static float H_MARGIN = 20f;
     /// <summary>
     /// Minimum size of padding between each cell in the grid, measured in pixels.
     /// </summary>
-    public static float PADDING = 5f;
+    protected static float PADDING = 5f;
     /// <summary>
     /// This string determines the title displayed at the top of the window.
     /// </summary>
-    public static string TITLE = "Default Bathtub Game";
+    protected static string TITLE = "Default Bathtub Game";
     /// <summary>
     /// Height of the banner above the grid, in pixels.
     /// </summary>
-    public static float BANNER_HEIGHT = 150f;
+    protected static float BANNER_HEIGHT = 150f;
     /// <summary>
     /// Whether or not the grid should be moved down to make space for the banner.
     /// </summary>
-    public bool ShowBanner = false;
+    protected bool ShowBanner = false;
     /// <summary>
     /// This string determines which font file is loaded for the game's text.
     /// Make sure you are somehow actually adding the font to the output directory.
     /// The easiest way is by setting the file to automatically copy to output directory
     /// in the .csproj file.
     /// </summary>
-    private static string fontName = "FreeMono.ttf";
+    protected static string fontName = "FreeMono.ttf";
 
     // --------------------------------------------
     // --------------------------------------------
@@ -56,7 +56,7 @@ public class Game(RenderWindow window)
 
     protected virtual Cell[,] Cells { get; } = new Cell[NUM_COLUMNS, NUM_ROWS];
     protected RenderWindow Window { get; } = window;
-    public static Font Font = new(fontName);
+    protected static Font Font = new(fontName);
     protected virtual Vector2f CellDimensions
     {
         get
