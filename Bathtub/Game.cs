@@ -46,7 +46,7 @@ public class Game(RenderWindow window)
     /// <summary>
     /// This string determines which font file is loaded for the game's text.
     /// Make sure you are somehow actually adding the font to the output directory.
-    /// The easiest way is by setting the file to automatically copy to output directory
+    /// The easiest way is by setting the file to automatically copy to the output directory
     /// in the .csproj file.
     /// </summary>
     protected static string fontName = "FreeMono.ttf";
