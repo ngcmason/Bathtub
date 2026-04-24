@@ -1,3 +1,4 @@
+using System.Dynamic;
 using SFML.Graphics;
 using SFML.System;
 
@@ -56,7 +57,7 @@ public class Game(RenderWindow window)
 
     protected virtual Cell[,] Cells { get; } = new Cell[NUM_COLUMNS, NUM_ROWS];
     protected RenderWindow Window { get; } = window;
-    protected static Font Font = new(fontName);
+    public static readonly Font Font = new(fontName);
     protected virtual Vector2f CellDimensions
     {
         get
