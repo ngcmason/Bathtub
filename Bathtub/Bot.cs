@@ -3,6 +3,7 @@
 /// </summary>
 public abstract class Bot
 {
+    public string Name { get; set; } = "";
     public abstract BotOutput think(BotInput input);
 }
 
