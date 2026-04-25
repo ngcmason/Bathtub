@@ -1,9 +1,12 @@
+using System.Drawing;
+
 /// <summary>
 /// This is the class each bot will actually derive from.
 /// </summary>
 public abstract class Bot
 {
     public string Name { get; } = "";
+    public Color Color { get; } = Color.Green;
     public abstract BotOutput think(BotInput input);
 }
 

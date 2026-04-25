@@ -7,7 +7,7 @@ RenderWindow window = new RenderWindow(new VideoMode(new SFML.System.Vector2u(80
 window.Closed += (s, e) => window.Close();
 window.Resized += (sender, e) =>
 {
-    var view = new View(new FloatRect(new Vector2f(0, 0), ((Vector2f)e.Size)));
+    var view = new View(new FloatRect(new Vector2f(0, 0), (Vector2f)e.Size));
     window.SetView(view);
 };
 
