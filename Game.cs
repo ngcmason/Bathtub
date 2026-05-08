@@ -1,4 +1,3 @@
-using System.Dynamic;
 using SFML.Graphics;
 using SFML.System;
 
